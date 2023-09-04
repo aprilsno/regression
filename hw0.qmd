@@ -1,0 +1,20 @@
+---
+title: "BST210 HW0"
+author: "Sara O'Brien"
+format: html
+editor: visual
+---
+
+```{r}
+# Read in dataset
+infants <- read.csv("~/Desktop/class/BST210/HW/infants.csv", header=TRUE)
+
+# Exploratory analysis to decide which variables are of interest
+scatter.smooth(infants$mage,infants$weight)
+scatter.smooth(infants$weight,infants$gained)
+
+# Run simple linear model on weight x gained
+infants_lm <- lm(data = infants, gained ~ weight)
+
+summary(infants_lm)$coeff
+```
